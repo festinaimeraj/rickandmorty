@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick and Morty Characters</title>
+  
+
+</head>
+<body>
+    <input type="search" placeholder="Search by species" id="searchInput" onchange=searchBySpecies()>
+    
+    <label for="status">Choose a status:</label>
+    <select id="status" name="status">
+    <option value="alive">Alive</option>
+    <option value="dead">Dead</option>
+    <option value="unknown">Unknown</option>
+    </select>
+
+  <table id="characterTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Species</th>
+        <th>Gender</th>
+        <th>Origin</th>
+      </tr>
+    </thead>
+    <tbody id="characterTableBody">
+      <!-- Rows will be populated dynamically -->
+    </tbody>
+  </table>
+
+  
+  <script type="module" src="scripts/app.js"></script>
+  <script type="module" src="scripts/index.js"></script>
+</body>
+</html>
