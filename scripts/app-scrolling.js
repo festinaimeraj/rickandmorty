@@ -57,39 +57,34 @@ function fetchAndDisplayCharacters(page = 1, species = null, status = null) {
         tableBody.appendChild(row);
         });
 
-        
-        const numberOfPages = result.data.characters.info.pages;
-        
-        const container = document.getElementById('pagination');
-        container.innerHTML = '';
-            
-        // Loop to create `num` elements
-        for (let i = 0; i < numberOfPages; i++) {
-            const newDiv = document.createElement('div'); // Create a new div element
-            newDiv.classList.add('created-element'); // Add a class for styling
-            if (i + 1 === page) {
-              newDiv.classList.add('text-success'); // Add a class for styling
-            }
-            newDiv.textContent = `${i + 1}`; // Set the text content
-            container.appendChild(newDiv); // Append the new div to the container
-
-            newDiv.addEventListener('click', function() {
-              const pageNumberInput = document.getElementById('pageNumber');
-              pageNumberInput.value = newDiv.textContent;
-              filterData();
-          });
-        }
+      currentPage = page;
     })
     .catch((error) => {
-        console.error('Error fetching characters:', error);
+      console.error('Error fetching characters:', error);
+    })
+    .finally(() => {
+      isFetching = false;
     });
 }
 
+// Infinite scrolling event listener
+function handleScroll() {
+  const scrollable = document.documentElement;
+  const scrollTop = scrollable.scrollTop || document.body.scrollTop;
+  const scrollHeight = scrollable.scrollHeight || document.body.scrollHeight;
+  const clientHeight = scrollable.clientHeight || window.innerHeight;
+
+  if (scrollTop + clientHeight >= scrollHeight - 50) {
+    fetchAndDisplayCharacters(currentPage + 1, null, null, true);
+  }
+}
+
+// Initial data fetch
 fetchAndDisplayCharacters();
 
-window.fetchAndDisplayCharacters = function (page, species = null, status = null) {
-  fetchAndDisplayCharacters(page, species, status);
-};
+// Attach infinite scroll listener
+window.addEventListener('scroll', handleScroll);
+
 
 // Default Language
 let currentLanguage = 'en';

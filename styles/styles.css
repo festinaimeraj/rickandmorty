@@ -1,43 +1,154 @@
+/* General styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+html, body {
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Table styling */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
-th, td {
-    border: 1px solid #ddd;
-    text-align: left;
-    padding: 8px;
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
-th {
-    background-color: #f4f4f4;
+
+table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  text-transform: uppercase;
 }
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Form styling */
+form {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+form input, form select {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form input:hover, form select:hover {
+  border-color: #007bff;
+}
+
+/* Pagination styling */
+#pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+#pagination span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#pagination a {
+  text-decoration: none;
+  margin: 0 5px;
+  color: #007bff;
+  padding: 5px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#pagination a:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+#pagination a.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+/* Footer styling */
 footer {
-    background-color: #f8f9fa;
-    padding: 10px 0;
-    font-size: 14px;
-    border-top: 1px solid #ddd;
-  }
-  
-  footer select {
-    margin-left: 10px;
-    padding: 5px;
-  }
-  
-  footer p, footer label {
-    margin: 5px 0;
-  }
-  .sortable {
-    cursor: pointer;
-  }
-  .sortable i {
-    margin-left: 5px;
-    cursor: pointer;
-    color: #888;
-  }
-  .sortable.asc i {
-    color: #000;
-    transform: rotate(180deg);
-  }
-  .sortable.desc i {
-    color: #000;
-  }
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  margin-top: auto;
+  border-top: 1px solid #ddd;
+}
+
+footer select {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+footer p, footer label {
+  margin: 5px 0;
+}
+
+footer {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+}
+
+/* Sortable styling */
+.sortable {
+  cursor: pointer;
+}
+
+.sortable i {
+  margin-left: 5px;
+  cursor: pointer;
+  color: #888;
+}
+
+.sortable.asc i {
+  color: #000;
+  transform: rotate(180deg);
+}
+
+.sortable.desc i {
+  color: #000;
+}
+
+/* Hover table row effect */
+table tr:hover {
+  background-color: #e6f7ff;
+}

@@ -1,14 +1,16 @@
 {
-    "characterName": "Charaktername",
-    "status": "Status",
-    "species": "Art",
-    "gender": "Geschlecht",
-    "origin": "Herkunft",
-    "language": "Sprache",
-    "footerText": "Bereitgestellt von Rick and Morty API",
-    "pagination": "Seitennummerierung",
-    "searchPlaceholder": "Suche nach Spezies",
-    "chooseStatus": "Wähle einen Status:",
-    "languageLabel": "Sprache:"
-  }
-  
+  "characterName": "Charaktername",
+  "statusText": "Status",
+  "speciesText": "Speciez",
+  "genderText": "Geschlecht",
+  "originText": "Herkunft",
+  "language": "Sprache",
+  "footerText": "Bereitgestellt von Rick and Morty API",
+  "paginationName": "Seitennummerierung",
+  "searchPlaceholder": "Suche nach Spezies",
+  "chooseStatus": "Wähle einen Status:",
+  "languageLabel": "Sprache:",
+  "aliveText": "Lebendig",
+  "deadText": "Tot",
+  "unknownText": "Umbekannt"
+}
