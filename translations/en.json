@@ -1,0 +1,14 @@
+{
+    "characterName": "Character Name",
+    "status": "Status",
+    "species": "Species",
+    "gender": "Gender",
+    "origin": "Origin",
+    "language": "Language",
+    "footerText": "Powered by Rick and Morty API",
+    "pagination": "Pagination",
+    "searchPlaceholder": "Search by species",
+    "chooseStatus": "Choose a status:",
+    "languageLabel": "Language:"
+  }
+  
