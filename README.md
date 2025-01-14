@@ -52,3 +52,5 @@ HTML with Apollo Client for GraphQL queries
 Rick and Morty GraphQL API
 CSS for styling
 
+![Screenshot 2025-01-15 000328](https://github.com/user-attachments/assets/c60605a0-a5d3-4e13-b4f0-c0b3bec18135)
+
