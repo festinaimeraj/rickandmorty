@@ -90,3 +90,92 @@ fetchAndDisplayCharacters();
 window.fetchAndDisplayCharacters = function (page, species = null, status = null) {
   fetchAndDisplayCharacters(page, species, status);
 };
+
+// Default Language
+let currentLanguage = 'en';
+
+// Fetch Translation Files
+const translations = {
+  en: {},
+  de: {}
+};
+
+async function loadTranslations() {
+  translations.en = await fetch('/translations/en.json').then(res => res.json());
+  translations.de = await fetch('/translations/de.json').then(res => res.json());
+  applyTranslations();
+}
+
+// Apply Translations to DOM
+function applyTranslations() {
+    document.getElementById('footerText').textContent = translations[currentLanguage].footerText;
+    document.getElementById('languageLabel').textContent = translations[currentLanguage].language;
+    document.getElementById('paginationText').textContent = translations[currentLanguage].pagination;
+  
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      el.textContent = translations[currentLanguage][key];
+    });
+  }
+  
+
+// Handle Language Switching
+document.getElementById('languageSwitcher').addEventListener('change', (event) => {
+  currentLanguage = event.target.value;
+  applyTranslations();
+});
+
+// Initial Setup
+loadTranslations();
+
+
+let currentSort = {
+  column: '',
+  order: ''
+};
+
+function sortTable(column) {
+  const characterTableBody = document.getElementById('characterTableBody');
+  let rows = Array.from(characterTableBody.getElementsByTagName('tr'));
+
+  const columnIndex = getColumnIndex(column); 
+  const ascending = currentSort.column !== column || currentSort.order !== 'asc';
+
+  rows.sort((a, b) => {
+    const textA = a.children[columnIndex].innerText.toLowerCase();
+    const textB = b.children[columnIndex].innerText.toLowerCase();
+    return ascending ? textA.localeCompare(textB) : textB.localeCompare(textA);
+  });
+
+  currentSort = { column, order: ascending ? 'asc' : 'desc' }; 
+  characterTableBody.innerHTML = '';
+  rows.forEach(row => characterTableBody.appendChild(row));
+
+  updateSortIcons(column, currentSort.order);
+}
+
+function getColumnIndex(column) {
+  const columns = ['name', 'status', 'species', 'gender', 'origin'];
+  return columns.indexOf(column); 
+}
+
+function updateSortIcons(column, order) {
+  // Reset icons for all columns
+  document.querySelectorAll('.sortable i').forEach(icon => {
+    icon.className = 'fa fa-fw fa-sort'; // Default sort icon
+  });
+
+  // Update the clicked column's icon
+  const header = document.querySelector(`th[data-column="${column}"] i`);
+  if (order === 'asc') {
+    header.className = 'fa fa-fw fa-sort-asc';
+  } else if (order === 'desc') {
+    header.className = 'fa fa-fw fa-sort-desc';
+  }
+}
+
+// Add event listeners to sortable column headers
+document.querySelectorAll('.sortable').forEach(header => {
+  const column = header.getAttribute('data-column');
+  header.addEventListener('click', () => sortTable(column));
+});

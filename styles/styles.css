@@ -11,3 +11,33 @@ th, td {
 th {
     background-color: #f4f4f4;
 }
+footer {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+  }
+  
+  footer select {
+    margin-left: 10px;
+    padding: 5px;
+  }
+  
+  footer p, footer label {
+    margin: 5px 0;
+  }
+  .sortable {
+    cursor: pointer;
+  }
+  .sortable i {
+    margin-left: 5px;
+    cursor: pointer;
+    color: #888;
+  }
+  .sortable.asc i {
+    color: #000;
+    transform: rotate(180deg);
+  }
+  .sortable.desc i {
+    color: #000;
+  }
