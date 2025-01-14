@@ -1,5 +1,5 @@
 Rick and Morty Character List Application
-This application fetches and displays a list of Rick and Morty characters using the Rick and Morty GraphQL API. It is built with Apollo Client and styled for readability. Users can filter characters, sort columns, paginate through results, and toggle the language between English and German (currently under development).
+This application fetches and displays a list of Rick and Morty characters using the Rick and Morty GraphQL API. It is built with Apollo Client and styled for readability. Users can filter characters, sort columns, paginate through results, and toggle the language between English and German.
 
 Features
 Character Information Display:
@@ -23,7 +23,7 @@ Pagination: Navigate through multiple pages of results.
 
 Infinite scrolling implemented.
 
-Language Switcher: Toggle between English and German for the column headers (in progress).
+Language Switcher: Toggle between English and German for the column headers.
 
 Responsive UI: Designed for readability using.
 
@@ -44,7 +44,7 @@ Usage
 Use the search bar and dropdown menus to filter by species or status.
 Click on column headers to sort by Name or Origin.
 Use the pagination controls at the bottom to browse through pages of results.
-Switch between English and German using the language dropdown in the footer (currently in progress).
+Switch between English and German using the language dropdown in the footer.
 
 
 Technologies Used
